@@ -4,7 +4,25 @@ import java.util.Arrays;
 
 public class HybridMergeInsertionSort<T extends Comparable<T>> {
 
-    private static final int INSERTION_SORT_THRESHOLD = 10; // threshold for switching to insertion sort
+    private static int INSERTION_SORT_THRESHOLD; // threshold for switching to insertion sort
+
+    /**
+     * When the size of a subarray falls below a certain threshold, the algorithm switches to Insertion Sort.
+     * @default INSERTION_SORT_THRESHOLD = 10
+     */
+    public HybridMergeInsertionSort(){
+        INSERTION_SORT_THRESHOLD = 10;
+    }
+
+    /**
+     * When the size of a subarray falls below a certain threshold, the algorithm switches to Insertion Sort.
+     * Default value of insertionSortThreshold as 10
+     *
+     * @param insertionSortThreshold
+     */
+    public HybridMergeInsertionSort(int insertionSortThreshold){
+        INSERTION_SORT_THRESHOLD = insertionSortThreshold;
+    }
 
     public void sort(T[] arr) {
         sort(arr, 0, arr.length - 1);
